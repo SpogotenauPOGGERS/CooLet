@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #07361d;
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar{
@@ -48,6 +48,40 @@ body{
     margin-right: 3rem;
    
     
+}
+
+.main{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.welcome{
+    font-size: 3rem;
+    margin-bottom: 5rem;
+}
+
+.quizzes{
+    margin: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    background-color: #325A13;
+    border-radius: 1rem;
+}
+
+.quizzes p{
+    font-size: 1.25rem;
+    color: #D9D9D9;
+}
+
+.recommendations{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+}
+
+.recommendations h1{
+    
+    font-size: 2rem;
 }
 
 
