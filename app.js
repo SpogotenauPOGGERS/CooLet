@@ -24,6 +24,25 @@ app.get('/', async (req, res) => {
   res.json(await getQuizzes())
 })
 
+app.get('/getSpec/:set', async (req, res) => {
+  const { set } = req.params
+  res.json(await getSpecSet(set))
+})
+
+async function getSpecSet(set) {
+  const result = await client
+    .db('CooLet')
+    .collection('Quizzes')
+    .find({
+      $or: [
+        { creator: { $regex: `^${set}`, $options: 'i' } },
+        { setName: { $regex: `^${set}`, $options: 'i' } },
+      ],
+    })
+    .toArray()
+  return result
+}
+
 async function getQuizzes() {
   const result = await client
     .db('CooLet')

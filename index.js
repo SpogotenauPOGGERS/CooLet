@@ -9,6 +9,7 @@ fetch('http://localhost:9000/')
         <h1>${quizzes.setName}</h1>
         <p>${quizzes.creator}</p>
         `
+        
       quizzesDiv.classList.add('quizzes')
       recoms.append(quizzesDiv)
     })
