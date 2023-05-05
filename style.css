@@ -1,28 +1,53 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #07361d;
 
 }
 
 .navbar{
-    display: flex;
+    display: flex; 
     flex-direction: row;
-    background-color: aquamarine;
-    justify-content: space-between;
+    background-color: #325A13;
+    padding-bottom: 2rem;
+    align-items: center;
 }
 
 .navElement{
-    background-color: red;
+    background-color: #D9D9D9;
+    margin-top: 1.5rem;
+    border-radius: 5px;
     
-
 }
 
 .home{
     margin-left: 3rem;
+    
+}
 
+.login{
+    margin-top: 1.5rem;
+    
+}
+
+.searchSet{
+    text-align: center;
+    margin-top: 1.5rem;
+    outline: none;
+    
+}
+
+.searchSet input{
+    background-color: #07361D;
+    color: #D9D9D9;
+    outline: none;
+    border-radius: 50px;
 }
 
 .addSet{
     margin-right: 3rem;
+   
     
 }
+
+
