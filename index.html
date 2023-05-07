@@ -9,12 +9,14 @@
       src="https://kit.fontawesome.com/e1bef00555.js"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="index.js" defer></script>
+    <script type="module" src="./routing/routes.js" defer></script>
     <title>CooLet</title>
   </head>
   <body>
     <div class="navbar">
-      <div class="navElement home"><i class="fa-solid fa-house"></i></div>
+      <div class="navElement home">
+        <a href="#home"><i class="fa-solid fa-house"></i></a>
+      </div>
       <div class="searchSet">
         <form>
           <input
@@ -27,9 +29,11 @@
         </form>
       </div>
       <div class="right-links">
-        <div class="navElement addSet"><i class="fa-solid fa-plus"></i></div>
+        <div class="navElement addSet">
+          <a href="#createSet"><i class="fa-solid fa-plus"></i></a>
+        </div>
         <div class="navElement login">
-          <i class="fa-solid fa-right-to-bracket"></i>
+          <a href="#login"><i class="fa-solid fa-right-to-bracket"></i></a>
         </div>
       </div>
     </div>

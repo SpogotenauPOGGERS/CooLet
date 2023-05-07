@@ -51,3 +51,18 @@ async function getQuizzes() {
     .toArray()
   return result
 }
+
+//login and register down here v
+
+app.post('/register', async (req, res) => {
+  const { name, password } = req.body
+  res.json(await postNewUser(name, password))
+})
+
+async function postNewUser(name, password) {
+  const result = await client
+    .db('CooLet')
+    .collection('Users')
+    .insertOne({ Username: name, Password: password })
+  return result
+}
