@@ -6,16 +6,23 @@ const placeForSearchedSets = document.querySelector('.searchedSets')
 fetch('http://localhost:9000/')
   .then((res) => res.json())
   .then((data) => {
-    data.forEach((quizzes) => {
-      const quizzesDiv = document.createElement('div')
-      quizzesDiv.innerHTML = `
-        <h1>${quizzes.setName}</h1>
-        <p>${quizzes.creator}</p>
-        `
+    console.log(data.length)
+    let randomNumbers = []
 
-      quizzesDiv.classList.add('quizzes')
-      recoms.append(quizzesDiv)
-    })
+    while (randomNumbers.length < 6) {
+      let randomNumber = Math.floor(Math.random() * data.length)
+
+      if (!randomNumbers.includes(randomNumber)) {
+        randomNumbers.push(randomNumber)
+        const quizzesDiv = document.createElement('div')
+        quizzesDiv.innerHTML = `
+        <h1>${data[randomNumber].setName}</h1>
+        <p>${data[randomNumber].creator}</p>
+        `
+        quizzesDiv.classList.add('quizzes')
+        recoms.append(quizzesDiv)
+      }
+    }
   })
 
 searchButton.addEventListener('click', (e) => {
