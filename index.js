@@ -1,10 +1,11 @@
-const recoms = document.querySelector('.recommendations')
-const searchButton = document.querySelector('.searchButton')
-const searchedSet = document.querySelector('.searchedSet')
-const placeForSearchedSets = document.querySelector('.searchedSets')
+const recoms = document.querySelector(".recommendations")
+const searchButton = document.querySelector(".searchButton")
+const searchedSet = document.querySelector(".searchedSet")
+const placeForSearchedSets = document.querySelector(".searchedSets")
+const mainBody = document.querySelector(".main")
 
 export default function renderHomePage() {
-  fetch('http://localhost:9000/')
+  fetch("http://localhost:9000/")
     .then((res) => res.json())
     .then((data) => {
       console.log(data.length)
@@ -15,18 +16,22 @@ export default function renderHomePage() {
 
         if (!randomNumbers.includes(randomNumber)) {
           randomNumbers.push(randomNumber)
-          const quizzesDiv = document.createElement('div')
+          const quizzesDiv = document.createElement("div")
           quizzesDiv.innerHTML = `
       <h1>${data[randomNumber].setName}</h1>
       <p>${data[randomNumber].creator}</p>
       `
-          quizzesDiv.classList.add('quizzes')
+          quizzesDiv.addEventListener("click", (e) =>
+            renderLearnMode(data[randomNumber])
+          )
+
+          quizzesDiv.classList.add("quizzes")
           recoms.append(quizzesDiv)
         }
       }
     })
 
-  searchButton.addEventListener('click', (e) => {
+  searchButton.addEventListener("click", (e) => {
     e.preventDefault()
     const searchedSetValue = searchedSet.value
     console.log(searchedSetValue)
@@ -36,19 +41,21 @@ export default function renderHomePage() {
       .then((data) => {
         console.log(data)
         if (data.length === 0) {
-          const nothingFoundText = document.createElement('h2')
-          nothingFoundText.textContent = 'There is no set like this'
-          nothingFoundText.classList.add('nothingFound')
+          const nothingFoundText = document.createElement("h2")
+          nothingFoundText.textContent = "There is no set like this"
+          nothingFoundText.classList.add("nothingFound")
           placeForSearchedSets.append(nothingFoundText)
         } else {
           data.forEach((quizzes) => {
-            const quizzesDiv = document.createElement('div')
+            const quizzesDiv = document.createElement("div")
             quizzesDiv.innerHTML = `
           <h1>${quizzes.setName}</h1>
-          <p>${quizzes.creator}</p>
-          `
+          <p>${quizzes.creator}</p>`
+            quizzesDiv.addEventListener("click", (e) =>
+              renderLearnMode(quizzes)
+            )
 
-            quizzesDiv.classList.add('searchedQuizzes')
+            quizzesDiv.classList.add("searchedQuizzes")
             placeForSearchedSets.append(quizzesDiv)
           })
         }
@@ -60,4 +67,13 @@ function clearElement(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild)
   }
+}
+
+function renderLearnMode(quiz) {
+  console.log(quiz)
+  clearElement(mainBody)
+
+  console.log(quiz.questions[3].language)
+
+  
 }
