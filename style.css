@@ -1,38 +1,37 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-color: #07361d;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #07361d;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar{
-    height: 4rem;
-    display: flex; 
-    background-color: #325A13;
-    align-items: center;
-    justify-content: space-between;
+.navbar {
+  height: 4rem;
+  display: flex;
+  background-color: #325a13;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.right-links{
-    display: flex;
-    flex-direction: row;
+.right-links {
+  display: flex;
+  flex-direction: row;
 }
 
-.navElement{
-    background-color: #D9D9D9;
-    font-size: 1.25rem;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.navElement {
+  background-color: #d9d9d9;
+  font-size: 1.25rem;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home{
-    margin-left: 3rem;
-    
+.home {
+  margin-left: 3rem;
 }
 
 .fa-house{
@@ -85,92 +84,92 @@ a:visited {
     outline: none;
 }
 
-.searchSet button:hover{
-    color:#325A13;
-    cursor: pointer;
+.searchSet button:hover {
+  color: #325a13;
+  cursor: pointer;
 }
 
-.searchSet input{
-    background-color: #07361D;
-    color: #D9D9D9;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-    font-size: 1rem;
-    padding: 0.5rem;
-    width: 22rem;
-    border: none;
-    outline: none;
-    height: 19px;
+.searchSet input {
+  background-color: #07361d;
+  color: #d9d9d9;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 22rem;
+  border: none;
+  outline: none;
+  height: 19px;
 }
 
 .addSet{
     margin-right: 3rem;
 }
 
-.main{
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+.main {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.welcome{
-    font-size: 3rem;
-    margin-bottom: 5rem;
+.welcome {
+  font-size: 3rem;
+  margin-bottom: 5rem;
 }
 
-.quizzes{
-    margin: 1rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    background-color: #325A13;
-    border-radius: 1rem;
+.quizzes {
+  margin: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: #325a13;
+  border-radius: 1rem;
 }
 
-.quizzes p{
-    font-size: 1.25rem;
-    color: #D9D9D9;
+.quizzes p {
+  font-size: 1.25rem;
+  color: #d9d9d9;
 }
 
-.recommendations{
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
+.recommendations {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
 }
 
-.recommendations h1{
-    font-size: 2rem;
+.recommendations h1 {
+  font-size: 2rem;
 }
 
-.recommTitle{
-    font-size: 2rem;
-    padding-left: 1.25rem;
+.recommTitle {
+  font-size: 2rem;
+  padding-left: 1.25rem;
 }
 
-.nothingFound{
-    font-size: 2.25rem;
-    padding-left: 1rem;
-    color: #D9D9D9;
+.nothingFound {
+  font-size: 2.25rem;
+  padding-left: 1rem;
+  color: #d9d9d9;
 }
 
-.searchedSets{
-    margin-bottom: 5rem;
+.searchedSets {
+  margin-bottom: 5rem;
 }
 
-.searchedQuizzes{
-    margin: 1rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    background-color: #325A13;
-    border-radius: 1rem;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 0.175rem;
-    padding-bottom: 0.175rem;
+.searchedQuizzes {
+  margin: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: #325a13;
+  border-radius: 1rem;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 0.175rem;
+  padding-bottom: 0.175rem;
 }
 
-.searchedQuizzes p{
-    font-size: 1.25rem;
-    color: #D9D9D9;
+.searchedQuizzes p {
+  font-size: 1.25rem;
+  color: #d9d9d9;
 }
 
 .loginForm{
