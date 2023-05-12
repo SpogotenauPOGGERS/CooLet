@@ -1,10 +1,11 @@
 import Router from './Router.js'
 import renderHomePage from '../index.js'
+import renderLogin from '../login.js'
 
 const routes = {
   homePage: { hash: '#home', function: renderHomePage },
   createSet: { hash: '#createSet' },
-  login: { hash: '#login' },
+  login: { hash: '#login', function: renderLogin },
   register: { hash: '#register' },
 }
 

@@ -1,9 +1,23 @@
-const recoms = document.querySelector('.recommendations')
 const searchButton = document.querySelector('.searchButton')
 const searchedSet = document.querySelector('.searchedSet')
-const placeForSearchedSets = document.querySelector('.searchedSets')
+const mainBody = document.querySelector('.main')
 
 export default function renderHomePage() {
+  clearElement(mainBody)
+  const welcome = document.createElement('h1')
+  welcome.textContent = 'Welcome to CooLet'
+  welcome.classList.add('welcome')
+  mainBody.append(welcome)
+  const placeForSearchedSets = document.createElement('div')
+  placeForSearchedSets.classList.add('searchedSets')
+  mainBody.append(placeForSearchedSets)
+  const recomTitle = document.createElement('h1')
+  recomTitle.textContent = 'Here are some recommendations'
+  recomTitle.classList.add('recommTitle')
+  mainBody.append(recomTitle)
+  const recoms = document.createElement('div')
+  recoms.classList.add('recommendations')
+  mainBody.append(recoms)
   fetch('http://localhost:9000/')
     .then((res) => res.json())
     .then((data) => {
