@@ -62,7 +62,9 @@ app.post('/register', async (req, res) => {
   const { name, password } = req.body
   const existingUser = await findUserByUsername(name)
   if (existingUser.length != 0) {
-    return res.status(409).json({ error: 'Username already exists' })
+    return res
+      .status(409)
+      .json({ error: 'Username already exists', register: false })
   }
   const result = await postNewUser(name, password)
   res.json(result)

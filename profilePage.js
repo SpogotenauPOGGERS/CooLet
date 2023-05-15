@@ -1,8 +1,11 @@
 const mainBody = document.querySelector('.main')
+const searchedSet = document.querySelector('.searchedSet')
 
 import { getUserData, getToken } from './userManager.js'
 
 export default function renderProfilePage() {
+  searchedSet.value = ''
+  searchedSet.disabled = true
   if (getToken() == null) {
     window.location.hash = '#home'
   }

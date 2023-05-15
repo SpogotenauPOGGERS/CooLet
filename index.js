@@ -6,6 +6,7 @@ const mainBody = document.querySelector('.main')
 
 export default function renderHomePage() {
   clearElement(mainBody)
+  searchedSet.disabled = false
   const welcome = document.createElement('h1')
   welcome.textContent = 'Welcome to CooLet'
   welcome.classList.add('welcome')

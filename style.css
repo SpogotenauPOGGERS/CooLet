@@ -290,3 +290,41 @@ a:visited {
   font-size: 2.25rem;
   margin-top: 3rem;
 }
+
+.logOutText{
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  text-align: center;
+}
+
+.registerLink:hover{
+  text-decoration: underline;
+}
+
+.logOutButton{
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 25%;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: #325A13;
+  border: none;
+  outline: none;
+}
+
+.logOutButton:hover{
+  cursor: pointer;
+}
+
+.registrationText{
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.loginText{
+  text-align: center;
+  margin-top: 3rem;
+}
