@@ -17,6 +17,9 @@ export default function renderProfilePage() {
   const usernameTag = document.createElement('h1')
   const createSetButton = document.createElement('button')
   createSetButton.textContent = 'Create a new set'
+  createSetButton.addEventListener('click', (e) => {
+    window.location.hash = '#createQuiz'
+  })
   createSetButton.classList.add('createSetButton')
   usernameTag.textContent = username
   profileTitle.append(usernameTag)

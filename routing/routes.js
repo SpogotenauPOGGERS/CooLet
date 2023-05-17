@@ -3,6 +3,7 @@ import renderHomePage from '../index.js'
 import renderLogin from '../login.js'
 import renderRegistrationPage from '../registration.js'
 import renderProfilePage from '../profilePage.js'
+import renderAddQuizPage from '../addQuiz.js'
 
 const routes = {
   homePage: { hash: '#home', function: renderHomePage },
@@ -10,6 +11,7 @@ const routes = {
   login: { hash: '#login', function: renderLogin },
   register: { hash: '#register', function: renderRegistrationPage },
   profile: { hash: '#profile', function: renderProfilePage },
+  addQuiz: { hash: '#createQuiz', function: renderAddQuizPage },
 }
 
 const router = new Router(routes)

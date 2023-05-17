@@ -272,7 +272,7 @@ a:visited {
 
 .createSetButton{
   background-color: #325A13;
-  height: 4rem;
+  /* height: 4rem; */
   font-size: 1.75rem;
   margin-right: 10rem;
   border: none;
@@ -327,4 +327,62 @@ a:visited {
 .loginText{
   text-align: center;
   margin-top: 3rem;
+}
+
+.noUserModal{
+  background-color: #325A13;
+  width: 25%;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.closeModalButton{
+  font-size: 1.5rem;
+  border-radius: 0.75rem;
+  height: 3rem;
+  width: 7rem;
+  background-color: #D9D9D9;
+  border: none;
+  outline: none;
+}
+
+.closeModalButton:hover{
+  cursor: pointer;
+}
+
+dialog::backdrop{
+  background-color: hsla(136, 37%, 14%, 0.5);
+}
+
+.addQuizTitle{
+  color: #d9d9d9;
+  margin-top: 12rem;
+  text-align: center;
+}
+
+.titleForm{
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 3rem;
+}
+
+.titleInput{
+  font-size: 1.5rem;
+  padding: .375rem;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1.5rem;
+}
+
+.titleSubmitButton{
+  width: 50%;
+  font-size: 1.25rem;
+  padding-top: .375rem;
+  padding-bottom: .375rem;
+  margin-left: auto;
+  margin-right: auto;
 }

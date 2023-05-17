@@ -33,6 +33,11 @@ app.get('/getSpec/:set', async (req, res) => {
   res.json(await getSpecSet(set))
 })
 
+app.post('/postQuiz', async (req, res) => {
+  const { creator, setName } = req.body
+  res.json(await postQuiz(creator, setName))
+})
+
 async function getSpecSet(set) {
   const result = await client
     .db('CooLet')
@@ -53,6 +58,14 @@ async function getQuizzes() {
     .collection('Quizzes')
     .find({})
     .toArray()
+  return result
+}
+
+async function postQuiz(creator, setName) {
+  const result = await client
+    .db('CooLet')
+    .collection('Quizzes')
+    .insertOne({ creator: creator, setName: setName })
   return result
 }
 
