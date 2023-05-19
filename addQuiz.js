@@ -4,6 +4,7 @@ import { getToken, getUserData } from './userManager.js'
 
 export default function renderAddQuizPage() {
   clearElement(mainBody)
+  let quizQuestions = []
   const addQuizTitle = document.createElement('h1')
   addQuizTitle.textContent = 'Type the name of your new Quiz'
   addQuizTitle.classList.add('addQuizTitle')
@@ -17,11 +18,65 @@ export default function renderAddQuizPage() {
   titleSubmitButton.textContent = 'Create this Quiz'
   titleSubmitButton.classList.add('titleSubmitButton')
   titleSubmitButton.type = 'submit'
-  titleForm.addEventListener('submit', createTitle)
+  titleForm.addEventListener('submit', (e) => createTitle(e, quizQuestions))
+
+  const questionsTitle = document.createElement('h1')
+  questionsTitle.classList.add('questionsTitle')
+  questionsTitle.textContent = 'Here you can add your terms'
+
+  const language1Input = document.createElement('input')
+  language1Input.classList.add('languageInput')
+  language1Input.placeholder = 'Write your Term in here'
+  const language2Input = document.createElement('input')
+  language2Input.classList.add('languageInput')
+  language2Input.placeholder = 'And here the translation'
+  const languages = document.createElement('div')
+  languages.classList.add('languageInputs')
+  languages.append(language1Input)
+  languages.append(language2Input)
+  const addAnotherTermButton = document.createElement('button')
+  addAnotherTermButton.classList.add('addAnotherTermButton')
+  addAnotherTermButton.innerHTML = `<i class="fa-solid fa-plus"></i>`
+
   titleForm.append(titleInput)
+  titleForm.append(questionsTitle)
+  titleForm.append(languages)
   titleForm.append(titleSubmitButton)
+  titleForm.append(addAnotherTermButton)
   mainBody.append(addQuizTitle)
   mainBody.append(titleForm)
+
+  addAnotherTermButton.addEventListener('click', (e) => {
+    e.preventDefault()
+    if (
+      language1Input.value.length === 0 ||
+      language1Input.value == '' ||
+      language2Input.value.length === 0 ||
+      language2Input.value == ''
+    ) {
+      language1Input.value = ''
+      language2Input.value = ''
+    } else {
+      let question = {
+        language1: language1Input.value,
+        language2: language2Input.value,
+      }
+      const termAndTranslation = document.createElement('div')
+      termAndTranslation.classList.add('termAndTranslation')
+      const language1 = document.createElement('div')
+      language1.classList.add('language')
+      language1.textContent = language1Input.value
+      const language2 = document.createElement('div')
+      language2.classList.add('language')
+      language2.textContent = language2Input.value
+      termAndTranslation.append(language1)
+      termAndTranslation.append(language2)
+      mainBody.append(termAndTranslation)
+      quizQuestions.push(question)
+      language1Input.value = ''
+      language2Input.value = ''
+    }
+  })
 
   const noUserModal = document.createElement('dialog')
   noUserModal.classList.add('noUserModal')
@@ -55,11 +110,12 @@ export default function renderAddQuizPage() {
   })
 }
 
-function createTitle(e) {
+function createTitle(e, quizQuestions) {
   e.preventDefault()
   const QuizData = {
     setName: e.target[0].value,
     creator: getUserData().username,
+    questions: quizQuestions,
   }
   fetch('http://localhost:9000/postQuiz', {
     method: 'POST',
@@ -70,80 +126,9 @@ function createTitle(e) {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data)
-      clearElement(mainBody)
-      const questionsTitle = document.createElement('h1')
-      questionsTitle.classList.add('questionsTitle')
-      questionsTitle.textContent = 'Here you can add your terms'
-      const questionsForm = document.createElement('form')
-      questionsForm.classList.add('questionsForm')
-      const language1Input = document.createElement('input')
-      language1Input.classList.add('languageInput')
-      language1Input.required = true
-      language1Input.placeholder = 'Write your Term in here'
-      const language2Input = document.createElement('input')
-      language2Input.classList.add('languageInput')
-      language2Input.required = true
-      language2Input.placeholder = 'And here the translation'
-      const submitQuestionsButton = document.createElement('button')
-      submitQuestionsButton.classList.add('submitQuestionButton')
-      submitQuestionsButton.textContent = 'Add these Question to the quiz'
-      submitQuestionsButton.type = 'submit'
-      const addAnotherTermButton = document.createElement('button')
-      addAnotherTermButton.classList.add('addAnotherTermButton')
-      addAnotherTermButton.innerHTML = `<i class="fa-solid fa-plus"></i>`
-
-      let quizQuestions = []
-      questionsForm.addEventListener('submit', (e) => {
-        e.preventDefault()
-        let question = {
-          language1: language1Input.value,
-          language2: language2Input.value,
-        }
-        const termAndTranslation = document.createElement('div')
-        termAndTranslation.classList.add('termAndTranslation')
-        const language1 = document.createElement('div')
-        language1.classList.add('language')
-        language1.textContent = language1Input.value
-        const language2 = document.createElement('div')
-        language2.classList.add('language')
-        language2.textContent = language2Input.value
-        termAndTranslation.append(language1)
-        termAndTranslation.append(language2)
-        mainBody.append(termAndTranslation)
-        quizQuestions.push(question)
-        language1Input.value = ''
-        language2Input.value = ''
-      })
-
-      addAnotherTermButton.addEventListener('click', (e) => {
-        e.preventDefault()
-        let question = {
-          language1: language1Input.value,
-          language2: language2Input.value,
-        }
-        const termAndTranslation = document.createElement('div')
-        termAndTranslation.classList.add('termAndTranslation')
-        const language1 = document.createElement('div')
-        language1.classList.add('language')
-        language1.textContent = language1Input.value
-        const language2 = document.createElement('div')
-        language2.classList.add('language')
-        language2.textContent = language2Input.value
-        termAndTranslation.append(language1)
-        termAndTranslation.append(language2)
-        mainBody.append(termAndTranslation)
-        quizQuestions.push(question)
-        language1Input.value = ''
-        language2Input.value = ''
-      })
-
-      mainBody.append(questionsTitle)
-      questionsForm.append(language1Input)
-      questionsForm.append(language2Input)
-      questionsForm.append(submitQuestionsButton)
-      questionsForm.append(addAnotherTermButton)
-      mainBody.append(questionsForm)
+      setTimeout(() => {
+        window.location.hash = '#profile'
+      }, 1000)
     })
 }
 

@@ -1,5 +1,5 @@
 import express from 'express'
-import { MongoClient } from 'mongodb'
+import { MongoClient, ObjectId } from 'mongodb'
 import cors from 'cors'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
@@ -34,8 +34,8 @@ app.get('/getSpec/:set', async (req, res) => {
 })
 
 app.post('/postQuiz', async (req, res) => {
-  const { creator, setName } = req.body
-  res.json(await postQuiz(creator, setName))
+  const { creator, setName, questions } = req.body
+  res.json(await postQuiz(creator, setName, questions))
 })
 
 async function getSpecSet(set) {
@@ -61,11 +61,11 @@ async function getQuizzes() {
   return result
 }
 
-async function postQuiz(creator, setName) {
+async function postQuiz(creator, setName, questions) {
   const result = await client
     .db('CooLet')
     .collection('Quizzes')
-    .insertOne({ creator: creator, setName: setName })
+    .insertOne({ creator: creator, setName: setName, questions: questions })
   return result
 }
 
