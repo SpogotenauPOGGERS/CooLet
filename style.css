@@ -490,12 +490,67 @@ dialog::backdrop {
   border-bottom: solid #325a13 2px;
 }
 
-.questionCard {
-  background-color: red;
-  margin-inline: auto;
+.cardPlace{
+  width: 70%;
+  height: 30rem;
+  perspective: 100rem;
+  display: flex;
+  margin-top: 5rem;
   margin-bottom: 3rem;
-  width: 80%;
-  text-align: center;
-  height: 25rem;
+  margin-inline: auto;
 }
 
+.questionCard {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 700ms;
+  transform-style: preserve-3d;
+  
+}
+
+.cardPlace:hover > .questionCard{
+  cursor: pointer;
+  transform: rotateX(180deg);
+}
+
+.frontSide,
+.backSide{
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  background-color: #325a13;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d9d9d9;
+  font-size: 1.5rem;
+  box-shadow: 0 0 .5rem 0.25rem rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.backSide{
+  transform: rotateX(180deg);
+}
+
+.buttonPlace{
+  display: flex;
+  justify-content: center;
+  gap: 3rem
+}
+
+.buttonPlace *{
+  height: 3rem;
+  width: 3rem;
+  font-size: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: #d9d9d9;
+  color: #07361d
+}
