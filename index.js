@@ -96,7 +96,7 @@ function clearElement(element) {
   }
 }
 
-function renderLearnMode(quiz) {
+export function renderLearnMode(quiz) {
   i = 0
   console.log(quiz)
   clearElement(mainBody)

@@ -2,6 +2,7 @@ const mainBody = document.querySelector('.main')
 const searchedSet = document.querySelector('.searchedSet')
 
 import { getUserData, getToken } from './userManager.js'
+import { renderLearnMode } from './index.js'
 
 export default function renderProfilePage() {
   searchedSet.value = ''
